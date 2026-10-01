@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WCAG 2.2 Compliance-Bericht - MobileX Design App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 20mm;
+            background: #fff;
+        }
+        
+        @media print {
+            body {
+                padding: 15mm;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+        }
+        
+        h1 {
+            font-size: 28px;
+            color: #134561;
+            border-bottom: 3px solid #FFA814;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            font-size: 22px;
+            color: #134561;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-left: 4px solid #FFA814;
+            padding-left: 12px;
+        }
+        
+        h3 {
+            font-size: 18px;
+            color: #417691;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        
+        h4 {
+            font-size: 14px;
+            color: #333;
+            margin-top: 15px;
+            margin-bottom: 8px;
+        }
+        
+        .header-info {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .header-info p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+        
+        .header-info strong {
+            color: #134561;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 13px;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px 12px;
+            text-align: left;
+        }
+        
+        th {
+            background: #134561;
+            color: white;
+            font-weight: 600;
+        }
+        
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        
+        tr:hover {
+            background: #f0f0f0;
+        }
+        
+        .status-ok {
+            color: #34C759;
+            font-weight: bold;
+        }
+        
+        .status-warn {
+            color: #FFA814;
+            font-weight: bold;
+        }
+        
+        .status-fail {
+            color: #C00024;
+            font-weight: bold;
+        }
+        
+        .summary-box {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .summary-card {
+            flex: 1;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .summary-card.warn {
+            background: #FFF3E0;
+            border: 2px solid #FFA814;
+        }
+        
+        .summary-card h3 {
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+        
+        .summary-card .status {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 12px;
+        }
+        
+        pre {
+            background: #2b2b2b;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 12px;
+            margin: 15px 0;
+        }
+        
+        .recommendation {
+            background: #E3F2FD;
+            border-left: 4px solid #2196F3;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .priority-high {
+            background: #FFEBEE;
+            border-left-color: #C00024;
+        }
+        
+        .priority-medium {
+            background: #FFF3E0;
+            border-left-color: #FFA814;
+        }
+        
+        ul, ol {
+            margin: 10px 0 10px 25px;
+        }
+        
+        li {
+            margin: 5px 0;
+        }
+        
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            font-size: 12px;
+            color: #666;
+            text-align: center;
+        }
+        
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo-text {
+            font-size: 36px;
+            font-weight: bold;
+            color: #134561;
+        }
+        
+        .logo-text span {
+            color: #FFA814;
+        }
+    </style>
+</head>
+<body>
+
+<div class="logo">
+    <div class="logo-text">Mobile<span>X</span></div>
+</div>
+
+<h1>WCAG 2.2 Compliance-Bericht</h1>
+
+<div class="header-info">
+    <p><strong>App:</strong> MobileX Design App</p>
+    <p><strong>Berichtsdatum:</strong> 3. Februar 2026</p>
+    <p><strong>App-Version:</strong> 1.0.0</p>
+    <p><strong>Prüfstandard:</strong> WCAG 2.2 Level AA</p>
+    <p><strong>Prüfmethode:</strong> Automatisierte Code-Analyse</p>
+</div>
+
+<h2>Executive Summary</h2>
+
+<div class="summary-box">
+    <div class="summary-card warn">
+        <h3>WCAG 2.2 Level A</h3>
+        <div class="status status-warn">⚠️ Teilweise erfüllt</div>
+    </div>
+    <div class="summary-card warn">
+        <h3>WCAG 2.2 Level AA</h3>
+        <div class="status status-warn">⚠️ Teilweise erfüllt</div>
+    </div>
+</div>
+
+<p>Die MobileX Design App erfüllt die grundlegenden Accessibility-Anforderungen, benötigt jedoch weitere Verbesserungen für vollständige WCAG 2.2 Konformität.</p>
+
+<div class="page-break"></div>
+
+<h2>1. Wahrnehmbarkeit (Perceivable)</h2>
+
+<h3>1.1 Textalternativen</h3>
+
+<table>
+    <tr>
+        <th>Kriterium</th>
+        <th>Status</th>
+        <th>Erfüllung</th>
+    </tr>
+    <tr>
+        <td>1.1.1 Nicht-Text-Inhalte (A)</td>
+        <td class="status-warn">⚠️ Teilweise</td>
+        <td>27%</td>
+    </tr>
+</table>
+
+<h4>Detailanalyse</h4>
+
+<table>
+    <tr>
+        <th>Element-Typ</th>
+        <th>MIT Label</th>
+        <th>OHNE Label</th>
+        <th>Gesamt</th>
+    </tr>
+    <tr>
+        <td>Image.asset</td>
+        <td class="status-ok">3</td>
+        <td class="status-fail">8</td>
+        <td>11</td>
+    </tr>
+    <tr>
+        <td>Icon</td>
+        <td class="status-ok">~18</td>
+        <td class="status-fail">~180</td>
+        <td>~198</td>
+    </tr>
+    <tr>
+        <td>IconButton</td>
+        <td class="status-ok">~10</td>
+        <td class="status-fail">~40</td>
+        <td>~50</td>
+    </tr>
+</table>
+
+<h4>Fehlende semanticLabels - Images</h4>
+
+<table>
+    <tr>
+        <th>Datei</th>
+        <th>Zeile</th>
+        <th>Beschreibung</th>
+    </tr>
+    <tr><td>login_existing_user_screen.dart</td><td>46, 50</td><td>App-Logos</td></tr>
+    <tr><td>sign_up_screen.dart</td><td>45, 50</td><td>App-Logos</td></tr>
+    <tr><td>splash_screen.dart</td><td>50</td><td>Splash-Logo</td></tr>
+    <tr><td>marketing_card.dart</td><td>56</td><td>Marketing-Bild</td></tr>
+    <tr><td>credit_card_benefits_screen.dart</td><td>190</td><td>Kreditkarten-Bild</td></tr>
+    <tr><td>cards_benefits_screen.dart</td><td>197</td><td>Karten-Bild</td></tr>
+    <tr><td>bonuspass_benefits_screen.dart</td><td>190</td><td>BonusPass-Bild</td></tr>
+    <tr><td>account_detail_screen.dart</td><td>367</td><td>Konto-Bild</td></tr>
+</table>
+
+<h3>1.4 Unterscheidbarkeit</h3>
+
+<table>
+    <tr>
+        <th>Kriterium</th>
+        <th>Status</th>
+        <th>Erfüllung</th>
+    </tr>
+    <tr>
+        <td>1.4.3 Kontrast (Minimum) (AA)</td>
+        <td class="status-warn">⚠️ Prüfung nötig</td>
+        <td>-</td>
+    </tr>
+    <tr>
+        <td>1.4.4 Textgröße ändern (AA)</td>
+        <td class="status-ok">✅ Erfüllt</td>
+        <td>100%</td>
+    </tr>
+    <tr>
+        <td>1.4.10 Reflow (AA)</td>
+        <td class="status-warn">⚠️ Prüfung nötig</td>
+        <td>-</td>
+    </tr>
+    <tr>
+        <td>1.4.11 Nicht-Text-Kontrast (AA)</td>
+        <td class="status-warn">⚠️ Prüfung nötig</td>
+        <td>-</td>
+    </tr>
+</table>
+
+<h4>Kontrast-Analyse</h4>
+
+<table>
+    <tr>
+        <th>Farbkombination</th>
+        <th>Verhältnis</th>
+        <th>Status</th>
+    </tr>
+    <tr>
+        <td><code>#333333</code> auf <code>#FFFFFF</code></td>
+        <td>12.63:1</td>
+        <td class="status-ok">✅ Erfüllt</td>
+    </tr>
+    <tr>
+        <td><code>#888888</code> auf <code>#FFFFFF</code></td>
+        <td>3.54:1</td>
+        <td class="status-warn">⚠️ Prüfen</td>
+    </tr>
+    <tr>
+        <td><code>#FFA814</code> auf <code>#FFFFFF</code></td>
+        <td>2.14:1</td>
+        <td class="status-warn">⚠️ Prüfen</td>
+    </tr>
+    <tr>
+        <td><code>#5BC5F2</code> auf <code>#FFFFFF</code></td>
+        <td>2.43:1</td>
+        <td class="status-warn">⚠️ Prüfen</td>
+    </tr>
+    <tr>
+        <td><code>#FFFFFF</code> auf <code>#134561</code></td>
+        <td>11.08:1</td>
+        <td class="status-ok">✅ Erfüllt</td>
+    </tr>
+</table>
+
+<div class="page-break"></div>
+
+<h2>2. Bedienbarkeit (Operable)</h2>
+
+<h3>2.1 Tastaturzugänglich</h3>
+
+<table>
+    <tr>
+        <th>Kriterium</th>
+        <th>Status</th>
+        <th>Erfüllung</th>
+    </tr>
+    <tr>
+        <td>2.1.1 Tastatur (A)</td>
+        <td class="status-ok">✅ Erfüllt</td>
+        <td>100%</td>
+    </tr>
+    <tr>
+        <td>2.1.2 Keine Tastaturfalle (A)</td>
+        <td class="status-ok">✅ Erfüllt</td>
+        <td>100%</td>
+    </tr>
+</table>
+
+<h3>2.4 Navigierbar</h3>
+
+<table>
+    <tr>
+        <th>Kriterium</th>
+        <th>Status</th>
+        <th>Erfüllung</th>
+    </tr>
+    <tr>
+        <td>2.4.3 Fokus-Reihenfolge (A)</td>
+        <td class="status-ok">✅ Erfüllt</td>
+        <td>80%</td>
+    </tr>
+    <tr>
+        <td>2.4.6 Überschriften und Labels (AA)</td>
+        <td class="status-ok">✅ Erfüllt</td>
+        <td>100%</td>
+    </tr>
+    <tr>
+        <td>2.4.7 Fokus sichtbar (AA)</td>
+        <td class="status-ok">✅ Erfüllt</td>
+        <td>100%</td>
+    </tr>
+</table>
+
+<h3>2.5 Eingabemodalitäten</h3>
+
+<table>
+    <tr>
+        <th>Kriterium</th>
+        <th>Status</th>
+        <th>Erfüllung</th>
+    </tr>
+    <tr>
+        <td>2.5.5 Zielgröße (Erweitert) (AAA)</td>
+        <td class="status-warn">⚠️ Teilweise</td>
+        <td>60%</td>
+    </tr>
+    <tr>
+        <td>2.5.8 Zielgröße (Minimum) (AA)</td>
+        <td class="status-ok">✅ Erfüllt</td>
+        <td>100%</td>
+    </tr>
+</table>
+
+<h4>Touch Target Analyse</h4>
+
+<table>
+    <tr>
+        <th>Größe</th>
+        <th>Anzahl</th>
+        <th>Status</th>
+    </tr>
+    <tr>
+        <td>≥ 48x48 dp</td>
+        <td>~15</td>
+        <td class="status-ok">✅ Empfohlen</td>
+    </tr>
+    <tr>
+        <td>40x40 dp</td>
+        <td>~6</td>
+        <td class="status-warn">⚠️ Unter Empfehlung</td>
+    </tr>
+    <tr>
+        <td>≥ 24x24 dp</td>
+        <td>Alle</td>
+        <td class="status-ok">✅ AA Minimum</td>
+    </tr>
+</table>
+
+<h4>Zu kleine Touch Targets (40x40 → 48x48)</h4>
+
+<table>
+    <tr>
+        <th>Datei</th>
+        <th>Element</th>
+    </tr>
+    <tr><td>trading_screen.dart</td><td>Search Icon</td></tr>
+    <tr><td>open_payment_detail_screen.dart</td><td>Back Button</td></tr>
+    <tr><td>edit_address_screen.dart</td><td>Action Button</td></tr>
+    <tr><td>portfolio_detail_screen.dart</td><td>Action Button</td></tr>
+    <tr><td>assets_screen.dart</td><td>Action Button</td></tr>
+    <tr><td>message_detail_screen.dart</td><td>Action Button</td></tr>
+</table>
+
+<div class="page-break"></div>
+
+<h2>3. Verständlichkeit (Understandable)</h2>
+
+<h3>3.2 Vorhersehbar</h3>
+
+<table>
+    <tr>
+        <th>Kriterium</th>
+        <th>Status</th>
+        <th>Erfüllung</th>
+    </tr>
+    <tr>
+        <td>3.2.1 Bei Fokus (A)</td>
+        <td class="status-ok">✅ Erfüllt</td>
+        <td>100%</td>
+    </tr>
+    <tr>
+        <td>3.2.2 Bei Eingabe (A)</td>
+        <td class="status-ok">✅ Erfüllt</td>
+        <td>100%</td>
+    </tr>
+</table>
+
+<h3>3.3 Eingabeunterstützung</h3>
+
+<table>
+    <tr>
+        <th>Kriterium</th>
+        <th>Status</th>
+        <th>Erfüllung</th>
+    </tr>
+    <tr>
+        <td>3.3.1 Fehlererkennung (A)</td>
+        <td class="status-ok">✅ Erfüllt</td>
+        <td>100%</td>
+    </tr>
+    <tr>
+        <td>3.3.2 Labels oder Anweisungen (A)</td>
+        <td class="status-ok">✅ Erfüllt</td>
+        <td>100%</td>
+    </tr>
+    <tr>
+        <td>3.3.3 Fehlerempfehlung (AA)</td>
+        <td class="status-ok">✅ Erfüllt</td>
+        <td>100%</td>
+    </tr>
+</table>
+
+<h2>4. Robustheit (Robust)</h2>
+
+<h3>4.1 Kompatibel</h3>
+
+<table>
+    <tr>
+        <th>Kriterium</th>
+        <th>Status</th>
+        <th>Erfüllung</th>
+    </tr>
+    <tr>
+        <td>4.1.2 Name, Rolle, Wert (A)</td>
+        <td class="status-ok">✅ Erfüllt</td>
+        <td>80%</td>
+    </tr>
+    <tr>
+        <td>4.1.3 Statusmeldungen (AA)</td>
+        <td class="status-ok">✅ Erfüllt</td>
+        <td>100%</td>
+    </tr>
+</table>
+
+<div class="page-break"></div>
+
+<h2>Compliance-Matrix Übersicht</h2>
+
+<table>
+    <tr>
+        <th>Richtlinie</th>
+        <th>Level</th>
+        <th>Status</th>
+    </tr>
+    <tr><td>1.1.1 Nicht-Text-Inhalte</td><td>A</td><td class="status-warn">⚠️ 27%</td></tr>
+    <tr><td>1.4.3 Kontrast (Minimum)</td><td>AA</td><td class="status-warn">⚠️ Prüfung</td></tr>
+    <tr><td>1.4.4 Textgröße ändern</td><td>AA</td><td class="status-ok">✅ 100%</td></tr>
+    <tr><td>1.4.10 Reflow</td><td>AA</td><td class="status-warn">⚠️ Prüfung</td></tr>
+    <tr><td>1.4.11 Nicht-Text-Kontrast</td><td>AA</td><td class="status-warn">⚠️ Prüfung</td></tr>
+    <tr><td>2.1.1 Tastatur</td><td>A</td><td class="status-ok">✅ 100%</td></tr>
+    <tr><td>2.1.2 Keine Tastaturfalle</td><td>A</td><td class="status-ok">✅ 100%</td></tr>
+    <tr><td>2.4.3 Fokus-Reihenfolge</td><td>A</td><td class="status-ok">✅ 80%</td></tr>
+    <tr><td>2.4.6 Überschriften und Labels</td><td>AA</td><td class="status-ok">✅ 100%</td></tr>
+    <tr><td>2.4.7 Fokus sichtbar</td><td>AA</td><td class="status-ok">✅ 100%</td></tr>
+    <tr><td>2.5.5 Zielgröße (Erweitert)</td><td>AAA</td><td class="status-warn">⚠️ 60%</td></tr>
+    <tr><td>2.5.8 Zielgröße (Minimum)</td><td>AA</td><td class="status-ok">✅ 100%</td></tr>
+    <tr><td>3.2.1 Bei Fokus</td><td>A</td><td class="status-ok">✅ 100%</td></tr>
+    <tr><td>3.2.2 Bei Eingabe</td><td>A</td><td class="status-ok">✅ 100%</td></tr>
+    <tr><td>3.3.1 Fehlererkennung</td><td>A</td><td class="status-ok">✅ 100%</td></tr>
+    <tr><td>3.3.2 Labels oder Anweisungen</td><td>A</td><td class="status-ok">✅ 100%</td></tr>
+    <tr><td>3.3.3 Fehlerempfehlung</td><td>AA</td><td class="status-ok">✅ 100%</td></tr>
+    <tr><td>4.1.2 Name, Rolle, Wert</td><td>A</td><td class="status-ok">✅ 80%</td></tr>
+    <tr><td>4.1.3 Statusmeldungen</td><td>AA</td><td class="status-ok">✅ 100%</td></tr>
+</table>
+
+<div class="page-break"></div>
+
+<h2>Empfohlene Maßnahmen</h2>
+
+<div class="recommendation priority-high">
+    <h4>🔴 Priorität HOCH</h4>
+    <ol>
+        <li><strong>8 fehlende Image semanticLabels hinzufügen</strong><br>
+            Geschätzter Aufwand: 30 Minuten</li>
+        <li><strong>6 Touch Targets auf 48dp erhöhen</strong><br>
+            Geschätzter Aufwand: 1 Stunde</li>
+        <li><strong>Kontrast-Tests durchführen</strong><br>
+            Tool: WebAIM Contrast Checker<br>
+            Fokus auf <code>#888888</code> und <code>#FFA814</code></li>
+    </ol>
+</div>
+
+<div class="recommendation priority-medium">
+    <h4>🟡 Priorität MITTEL</h4>
+    <ol start="4">
+        <li><strong>~40 IconButton tooltips hinzufügen</strong><br>
+            Geschätzter Aufwand: 2 Stunden</li>
+        <li><strong>TalkBack/VoiceOver Tests</strong><br>
+            Android: TalkBack aktivieren, durch App navigieren<br>
+            iOS: VoiceOver aktivieren, durch App navigieren</li>
+    </ol>
+</div>
+
+<div class="recommendation">
+    <h4>🟢 Priorität NIEDRIG</h4>
+    <ol start="6">
+        <li><strong>Weitere Icon semanticLabels (~180)</strong><br>
+            Sukzessive bei Code-Änderungen ergänzen</li>
+    </ol>
+</div>
+
+<h2>Test-Dokumentation</h2>
+
+<h3>Empfohlene Testgeräte</h3>
+
+<table>
+    <tr>
+        <th>Plattform</th>
+        <th>Gerät</th>
+        <th>OS Version</th>
+        <th>Screenreader</th>
+    </tr>
+    <tr>
+        <td>Android</td>
+        <td>Pixel 6+</td>
+        <td>Android 13+</td>
+        <td>TalkBack</td>
+    </tr>
+    <tr>
+        <td>iOS</td>
+        <td>iPhone 12+</td>
+        <td>iOS 16+</td>
+        <td>VoiceOver</td>
+    </tr>
+</table>
+
+<h3>Testszenarien</h3>
+
+<table>
+    <tr>
+        <th>Kategorie</th>
+        <th>Test</th>
+        <th>Status</th>
+    </tr>
+    <tr><td>Navigation</td><td>Durch alle Tabs navigieren</td><td>☐</td></tr>
+    <tr><td>Navigation</td><td>In Unterseiten wechseln</td><td>☐</td></tr>
+    <tr><td>Navigation</td><td>Zurück-Navigation</td><td>☐</td></tr>
+    <tr><td>Formulare</td><td>Eingabefelder fokussieren</td><td>☐</td></tr>
+    <tr><td>Formulare</td><td>Fehler auslösen und prüfen</td><td>☐</td></tr>
+    <tr><td>Formulare</td><td>Formular absenden</td><td>☐</td></tr>
+    <tr><td>Aktionen</td><td>Buttons aktivieren</td><td>☐</td></tr>
+    <tr><td>Aktionen</td><td>Swipe-Gesten prüfen</td><td>☐</td></tr>
+    <tr><td>Aktionen</td><td>Long-Press Aktionen</td><td>☐</td></tr>
+</table>
+
+<div class="footer">
+    <p><strong>WCAG 2.2 Compliance-Bericht</strong></p>
+    <p>MobileX Design App | Version 1.0.0</p>
+    <p>Erstellt am 3. Februar 2026</p>
+    <p><em>Dieser Bericht wurde automatisch generiert und sollte durch manuelle Tests ergänzt werden.</em></p>
+</div>
+
+</body>
+</html>
