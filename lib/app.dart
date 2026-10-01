@@ -10,6 +10,20 @@ import 'core/brand/app_brand_template.dart';
 import 'core/brand/brand_scope.dart';
 import 'routing/app_router.dart';
 
+/// Disables the Android overscroll stretch/glow effect (iOS bouncing stays).
+class _NoOverscrollIndicatorBehavior extends MaterialScrollBehavior {
+  const _NoOverscrollIndicatorBehavior();
+
+  @override
+  Widget buildOverscrollIndicator(
+    BuildContext context,
+    Widget child,
+    ScrollableDetails details,
+  ) {
+    return child;
+  }
+}
+
 /// Main App Widget
 ///
 /// Configures MaterialApp with Theme and Router
@@ -98,6 +112,7 @@ class _AppState extends State<App> {
                 AppBrandTemplate.crealogix => 'Crealogix Mobile Banking',
               },
               debugShowCheckedModeBanner: false,
+              scrollBehavior: const _NoOverscrollIndicatorBehavior(),
               theme: _buildTheme(isDark: false),
               darkTheme: _buildTheme(isDark: true),
               themeMode: _themeNotifier.themeMode,
